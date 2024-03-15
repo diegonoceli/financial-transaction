@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+feign:
+  account-url: localhost:9090
+  bacen-url: localhost:9090

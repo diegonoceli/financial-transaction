@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/account/123"
+  },
+  "response": {
+    "status": 200,
+    "body": "{ \"accountId\": \"123\", \"status\": \"active\", \"balance\": 1000.00, \"dailyLimit\": 1000.00 }",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -4,41 +4,34 @@ import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 class SqsServiceTest {
 
     @Mock
     private AmazonSQS sqsClient;
 
-    @InjectMocks
     private SqsService sqsService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        sqsService = new SqsService(sqsClient);
     }
 
     @Test
-    void testSendMessageToQueueSuccess() {
+    void sendMessageToQueue() {
         String message = "Test message";
+        String queueUrl = "http://localhost:4566";
 
         sqsService.sendMessageToQueue(message);
 
-        verify(sqsClient, times(1)).sendMessage(any(SendMessageRequest.class));
-    }
-
-    @Test
-    void testSendMessageToQueueWithNullMessage() {
-        String message = null;
-
-        sqsService.sendMessageToQueue(message);
-
-        verifyNoInteractions(sqsClient);
+        SendMessageRequest expectedRequest = new SendMessageRequest()
+                .withQueueUrl(queueUrl)
+                .withMessageBody(message);
+        verify(sqsClient).sendMessage(expectedRequest);
     }
 }

@@ -40,7 +40,7 @@ class TransactionServiceTest {
     @Test
     void testNotifyBacenSuccess() {
         BacenTransactionRequest request = new BacenTransactionRequest("123", BigDecimal.TEN);
-        ResponseEntity<Void> successResponse = ResponseEntity.ok().build();
+        ResponseEntity<String> successResponse = ResponseEntity.ok().build();
 
         when(bacenFeignClient.notifyTransaction(request)).thenReturn(successResponse);
 
@@ -50,7 +50,7 @@ class TransactionServiceTest {
     @Test
     void testNotifyBacenFailure() throws JsonProcessingException {
         BacenTransactionRequest request = new BacenTransactionRequest("123", BigDecimal.TEN);
-        ResponseEntity<Void> errorResponse = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        ResponseEntity<String> errorResponse = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
         when(bacenFeignClient.notifyTransaction(request)).thenReturn(errorResponse);
 
@@ -62,7 +62,7 @@ class TransactionServiceTest {
     @Test
     void testNotifyBacenRetry() {
         BacenTransactionRequest request = new BacenTransactionRequest("123", BigDecimal.TEN);
-        ResponseEntity<Void> errorResponse = ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+        ResponseEntity<String> errorResponse = ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
 
         when(bacenFeignClient.notifyTransaction(request)).thenReturn(errorResponse);
 

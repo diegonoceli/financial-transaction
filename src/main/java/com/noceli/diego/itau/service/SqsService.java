@@ -11,6 +11,10 @@ public class SqsService {
 
     private final AmazonSQS sqsClient;
 
+
+    public SqsService(AmazonSQS sqsClient) {
+        this.sqsClient = sqsClient;
+    }
     public SqsService() {
         this.sqsClient = AmazonSQSClientBuilder.standard()
                 .withRegion(Regions.SA_EAST_1)

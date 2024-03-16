@@ -1,32 +1,22 @@
-name: Update Gradle Build Caches
+name: Build and Test
 
 on:
-  schedule:
-    - cron: 0 0 * * *
   push:
     branches:
-      - main
+      - main  # Modify this to your main branch name
 
 jobs:
-  update-cache:
-    name: Update Gradle Cache
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '11'
+    - name: Set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
 
-      - name: Assemble
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assemble compileTestKotlin
-
-    env:
-      JAVA_OPTS: "-Xmx1g"
-      NEXUS_CREDENTIALS_PSW: ${{ secrets.NEXUS_CREDENTIALS_PSW }}
-      NEXUS_CREDENTIALS_USR: ${{ secrets.NEXUS_CREDENTIALS_USR }}
+    - name: Build with Maven
+      run: mvn -B clean verify

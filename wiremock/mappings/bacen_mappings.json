@@ -1,0 +1,13 @@
+{
+      "request": {
+        "method": "POST",
+        "url": "/notifyTransaction"
+      },
+      "response": {
+        "status": 200,
+        "body": "Transaction successfully notified to BACEN",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }

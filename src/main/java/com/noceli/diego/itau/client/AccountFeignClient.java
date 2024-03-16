@@ -1,5 +1,6 @@
 package com.noceli.diego.itau.client;
 
+import com.noceli.diego.itau.client.model.AccountResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -11,5 +12,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface AccountFeignClient {
 
     @GetMapping("/account/{accountId}")
-    ResponseEntity<String> getAccountDetails(@PathVariable("accountId") String accountId);
+    AccountResponse getAccountDetails(@PathVariable("accountId") String accountId);
 }

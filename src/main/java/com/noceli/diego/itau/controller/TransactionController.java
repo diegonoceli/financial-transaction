@@ -17,7 +17,7 @@ public class TransactionController {
     @Autowired
     private TransactionValidationService transactionValidationService;
 
-    @PostMapping("/account")
+    @PostMapping("/transfer")
     public TransactionResponse getAccount(@RequestBody TransactionRequest transactionRequest) throws Exception {
         AccountResponse response = transactionValidationService.executeTransaction(transactionRequest.getTransactionAmount(), transactionRequest.getAccountId());
         return createResponse(response, transactionRequest.getTransactionAmount());

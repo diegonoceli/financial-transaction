@@ -1,7 +1,6 @@
 package com.noceli.diego.itau.client.model;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 public class AccountResponse {
     private String accountId;

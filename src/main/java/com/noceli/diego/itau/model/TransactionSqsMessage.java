@@ -10,6 +10,7 @@ public class TransactionSqsMessage {
         this.accountId = accountId;
         this.transactionAmount = transactionAmount;
     }
+
     public String getAccountId() {
         return accountId;
     }

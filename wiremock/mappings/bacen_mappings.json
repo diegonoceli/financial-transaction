@@ -1,26 +1,13 @@
 {
-  "request": {
-    "method": "POST",
-    "url": "/notifyTransaction"
-  },
-  "response": {
-    "status": 200,
-    "body": "Transaction successfully notified to BACEN",
-    "headers": {
-      "Content-Type": "text/plain"
+      "request": {
+        "method": "POST",
+        "url": "/notifyTransaction"
+      },
+      "response": {
+        "status": 200,
+        "body": "Transaction successfully notified to BACEN",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
     }
-  }
-},
-{
-  "request": {
-    "method": "POST",
-    "url": "/notifyTransaction"
-  },
-  "response": {
-    "status": 429,
-    "body": "Rate limit exceeded",
-    "headers": {
-      "Content-Type": "text/plain"
-    }
-  }
-}

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.noceli.diego.itau.client.BacenFeignClient;
 import com.noceli.diego.itau.client.model.BacenTransactionRequest;
 import com.noceli.diego.itau.model.TransactionSqsMessage;
-import com.noceli.diego.itau.service.SqsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -17,9 +16,7 @@ import org.springframework.http.ResponseEntity;
 import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class TransactionServiceTest {
 

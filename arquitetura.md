@@ -17,11 +17,6 @@
 - Utilizar o Amazon RDS (Relational Database Service) com banco de dados relacional como PostgreSQL ou MySQL para armazenar dados transacionais como informações de conta e transações.
 - Para operações de baixa latência e alta disponibilidade, pode-se considerar o Amazon DynamoDB para armazenar dados de cache ou dados altamente acessados.
 
-## Uso de Caching:
-
-- Utilizar o Amazon ElastiCache para caching de dados frequentemente acessados, como consultas de saldo de conta.
-- Implementar um mecanismo de expiração de cache para garantir que os dados estejam sempre atualizados.
-
 ## Tempo Total da Requisição até a Resposta ao Cliente:
 
 - O uso de tecnologias de contêineres e escalabilidade automática ajudará a manter os tempos de resposta baixos.
